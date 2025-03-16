@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'to_do';
+  tasks: string[] = [];
+  newTask: string = '';
+
+  addTask() {
+    if (this.newTask.trim()) {
+      this.tasks.push(this.newTask.trim());
+      this.newTask = '';
+    }
+  }
+
+  deleteTask(index: number) {
+    this.tasks.splice(index, 1);
+  }
 }
